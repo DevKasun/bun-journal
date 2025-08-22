@@ -1,0 +1,12 @@
+# Node modules
+node_modules/
+
+# Build outputs
+app/build/
+app/dist/
+
+# Environment files
+.env
+
+# Database files (optional)
+server/db/*.sqlite

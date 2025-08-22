@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "dev": "concurrently \"bun server/src/index.ts\" \"cd app && bunx vite\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  }
+}

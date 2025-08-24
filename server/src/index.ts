@@ -1,12 +1,7 @@
 import { serve } from "bun";
+import { router } from "./routes";
 
-const port = 3000;
-
-const server = Bun.serve({
-  port,
-  fetch(req) {
-    return new Response("Hello World from Bun server");
-  },
+serve({
+  port: 3000,
+  fetch: router,
 });
-
-console.log(`Server started on port ${port}`);

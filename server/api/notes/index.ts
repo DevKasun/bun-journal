@@ -9,7 +9,7 @@ export async function GET(): Promise<Response> {
   });
 }
 
-export async function POST(): Promise<Response> {
+export async function POST(req: Request): Promise<Response> {
   const { title, description } = await req.json();
   if (!title) {
     return new Response(JSON.stringify({ error: "title is required" }), {
@@ -19,7 +19,7 @@ export async function POST(): Promise<Response> {
       },
     });
   }
-  const note = notesRepo.createNote(title, description);
+  const note = noteRepo.createNote(title, description);
   return new Response(JSON.stringify(note), {
     status: 201,
     headers: { "Content-Type": "application/json" },

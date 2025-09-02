@@ -1,5 +1,5 @@
 import db from "./client.ts";
-import type { Note, CreateNoteResponse } from "../types"
+import type { Note, CreateNoteResponse, ListNotesResponse } from "../types"
 
 export async function createNote(title: string, description: string) {
   const stmt = db.prepare(
@@ -11,5 +11,5 @@ export async function createNote(title: string, description: string) {
 }
 
 export function getAllNotes(): Note[] {
-  return db.query("SELECT * FROM notes ORDER BY created_at DESC").all() as Note[];
+  return db.query("SELECT * FROM notes ORDER BY created_at DESC").all() as ListNotesResponse;
 }
